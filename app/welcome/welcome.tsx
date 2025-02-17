@@ -13,7 +13,7 @@ export function Welcome() {
               className="block w-full dark:hidden"
             />
             <img
-              src={logoDark}
+              src={logoDarkkkk}
               alt="React Router"
               className="hidden w-full dark:block"
             />
