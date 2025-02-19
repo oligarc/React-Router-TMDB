@@ -7,3 +7,8 @@ Componentes :
  - DetailMovieCard
  - Boton
  
+
+
+
+ Recursos:
+ - https://www.youtube.com/watch?v=QdKn-UBa0So  React Typescript Project | Final Part| React Router | Creating Pages And Navigation | Movies Website (React Router as a dependency)
