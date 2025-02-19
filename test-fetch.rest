@@ -1,0 +1,18 @@
+###Fetch the newest films
+
+GET https://api.themoviedb.org/3/movie/now_playing?api_key=&language=es-ES
+Accept: application/json
+
+### Fetch movies by searching them
+
+GET https://api.themoviedb.org/3/search/movie?api_key=9274b6bb9987cfeee16d49f4d20492c0&query=shr&language=es-ES`
+Accept: application/json
+
+### Fetch genres
+
+GET https://api.themoviedb.org/3/genre/movie/list?api_key=9274b6bb9987cfeee16d49f4d20492c0&language=es-ES
+Accept: application/json
+
+### Fetch movie info
+GET https://api.themoviedb.org/3/movie/2?api_key=9274b6bb9987cfeee16d49f4d20492c0&language=es-ES
+Accept: application/json
