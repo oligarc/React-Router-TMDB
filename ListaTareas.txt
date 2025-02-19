@@ -1,0 +1,9 @@
+Componentes : 
+ - Logo
+ - Input
+ - Header
+ - Footer
+ - Card 
+ - DetailMovieCard
+ - Boton
+ 
