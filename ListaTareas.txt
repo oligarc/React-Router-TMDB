@@ -4,6 +4,7 @@ Componentes :
  - Header
  - Footer
  - Card 
+ - Cardlist
  - DetailMovieCard
  - Boton
  
