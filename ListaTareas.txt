@@ -9,6 +9,11 @@ Componentes :
  - Boton
  
 
+Comandos :
+ - npm install ts-node typescript dotenv        installing new dependencies
+        dotenv allows us to use the .env files
+        ts-node allows us to ejecute ts files in the terminal for console.logs and other stuff
+
 
 
  Recursos:
