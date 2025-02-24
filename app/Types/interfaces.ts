@@ -20,3 +20,12 @@ export interface TextInputProps{
     value?:string,
     onChange?: () => void
 }
+
+export interface FooterProps{
+    backgroundcolor:string
+}
+
+export interface Genre{
+    id:number,
+    name:string
+}
