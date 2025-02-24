@@ -12,8 +12,8 @@ function Footer({backgroundcolor} : FooterProps) {
                       <ul className="inline-flex space-x-4 text-lg">
                           <NavLink to="/">2025 TMDB</NavLink>
                           <NavLink to="about">About us</NavLink>
-                          <NavLink to="#">Privacy Politics</NavLink>
-                          <NavLink to="#">Cookies Politics</NavLink>
+                          <NavLink to="#">Privacy Policy</NavLink>
+                          <NavLink to="#">Cookies Policy</NavLink>
                       </ul>
                   </nav>
               </div>

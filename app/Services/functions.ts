@@ -1,6 +1,7 @@
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
+
 export const fetchGenres = async () => {
     try {
       const response = await fetch(

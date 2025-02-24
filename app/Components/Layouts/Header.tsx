@@ -40,9 +40,9 @@ function Header({backgroundcolor,textcolor} : HeaderProps) {
             <NavLink to="/watchlist" className={"text-black ms-3 bg-gre"}>Watchlist</NavLink>
             <NavLink to="/trendingActors" className={"text-black ms-3 bg-gre"}>Trending actors</NavLink>
             <select className='ms-3 p-1 border rounded-2xl'>
-              <option value="">Filter by genre</option>
+              <option value="" className={`${backgroundcolor}`}>Filter by genre</option>
               {genres.map(genre => (
-                  <option key={genre.id} value={genre.id}>{genre.name}</option>
+                  <option key={genre.id} value={genre.id} className={`${backgroundcolor}`}>{genre.name}</option>
                 ))}
             </select>
           </nav>
