@@ -4,10 +4,5 @@
 # React Router
 /.react-router/
 /build/
-<<<<<<< HEAD
-
-.env
-=======
 .env
 *.rest
->>>>>>> cb6eb6d59f4c64df429e5df0ca5366e409cceed4
