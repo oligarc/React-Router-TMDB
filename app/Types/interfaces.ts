@@ -15,7 +15,7 @@ export interface ButtonProps{
 }
 
 export interface TextInputProps{
-    name:string,
+    name?:string,
     placeholder:string,
     value?:string,
     onChange?: () => void
@@ -30,7 +30,7 @@ export interface Genre{
     name:string
 }
 
-export interface BasicMovie{
+export interface MovieBasic{
     id:number,  
     title:string,
     overview:string,
@@ -55,7 +55,7 @@ export interface Movie {
     vote_count: number;
 }
   
-export interface MovieResponse {
+export interface MovieListResponse {
     dates: {
         maximum: string;
         minimum: string;
@@ -63,3 +63,7 @@ export interface MovieResponse {
     page: number;
     results: Movie[];
 }
+
+export interface MovieCardListProps {
+    movies: MovieBasic[];
+  }
