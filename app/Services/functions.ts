@@ -24,7 +24,7 @@ export const fetchRecentMovies = async (page: number = 1) => {
 export const fetchGenres = async () => {
     try {
       const response = await fetch(
-        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=es-ES`
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-EN`
       );
       const data = await response.json();
       console.log("FETCH" +data)

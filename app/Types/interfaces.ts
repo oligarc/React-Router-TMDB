@@ -20,6 +20,7 @@ export interface TextInputProps{
     placeholder:string,
     value?:string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export interface FooterProps{
