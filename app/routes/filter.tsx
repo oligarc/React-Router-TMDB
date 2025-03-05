@@ -4,7 +4,7 @@ import MovieCard from "~/Components/Cards/MovieCard";
 import { fetchFilmsByGenre } from "~/Services/functions"; // Función para obtener películas por género
 import type { Movie } from "~/Types/interfaces";
 
-function filter() {
+function Filter() {
   const [searchParams] = useSearchParams(); //This is an import from react-router to get to the URL params
   const genreId = searchParams.get("genreId"); // Then here we obtain the id genre from URL
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -64,4 +64,4 @@ function filter() {
   );
 }
 
-export default filter;
+export default Filter;

@@ -61,7 +61,7 @@ export const fetchGenres = async () => {
   };
 
   export async function fetchTrendingActors(page: number): Promise<{ actors: Actor[], total_pages: number }> {
-    const response = await fetch(`${BASE_URL}/person/popular?api_key=YOUR_API_KEY&page=${page}`);
+    const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&page=${page}`);
     const data = await response.json();
     return {
       actors: data.results,
