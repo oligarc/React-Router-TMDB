@@ -11,14 +11,16 @@ export interface HeaderProps{
 export interface ButtonProps{
     backgroundcolor?:string,
     text:string,
-    isrounded?:boolean
+    isrounded?:boolean,
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export interface TextInputProps{
     name?:string,
     placeholder:string,
     value?:string,
-    onChange?: () => void
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export interface FooterProps{
@@ -30,40 +32,27 @@ export interface Genre{
     name:string
 }
 
-export interface MovieBasic{
-    id:number,  
-    title:string,
-    overview:string,
-    poster_path:string,
-    popularity:number,
-}
-
 export interface Movie {
-    adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-}
-  
-export interface MovieListResponse {
-    dates: {
-        maximum: string;
-        minimum: string;
-    };
-    page: number;
-    results: Movie[];
+    id: number,
+    title: string,
+    overview: string,
+    release_date: string,
+    poster_path: string | null,
+    backdrop_path: string | null,
+    vote_average: number,
+    genre_ids: number[]
 }
 
-export interface MovieCardListProps {
-    movies: MovieBasic[];
-  }
+
+
+export interface Actor {
+    id: number;
+    name: string;
+    profile_path: string | null; // La URL de la imagen de perfil del actor
+    known_for_department: string; // Departamento por el cual es conocido (e.g., Actor, Director)
+    popularity: number; // Popularidad del actor según la API
+}
+
+export interface ActorCardProps{
+    actor: Actor
+}
