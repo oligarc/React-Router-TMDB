@@ -1,17 +1,79 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { Movie, Genre } from "~/Types/interfaces";
-import { fetchMovieDetails, fetchGenres } from "~/Services/functions";
+import type { Movie } from "~/Types/interfaces";
+import { fetchMovieDetails } from "~/Services/functions";
 
 export default function Details() {
   const { movieId } = useParams();
-  const numericMovieId = Number(movieId);// Convert movieId to a number
+  const numericMovieId = Number(movieId); // Convert movieId to a number
 
   const [movie, setMovie] = useState<Movie | null>(null);
-  const [genres, setGenres] = useState<Genre[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
 
+  // Get stored movies from localStorage
+  const getStoredMovies = (key: string) => {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : [];
+  };
+
+  // Handle add to favorites
+  const handleAddToFavorites = () => {
+    const favorites = getStoredMovies('favorites');
+    if (isFavorite) {
+      setMessage(`${movie?.title} is already in your favorites!`);
+      setMessageType('error');
+    } else {
+      favorites.push(movie!); // Adding the current movie to favorites
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      setIsFavorite(true);
+      setMessage(`${movie?.title} added to favorites!`);
+      setMessageType('success');
+    }
+    setTimeout(() => setMessage(''), 5000);
+  };
+
+  // Handle remove from favorites
+  const handleRemoveFromFavorites = () => {
+    const favorites = getStoredMovies('favorites').filter((fav: Movie) => fav.id !== movie!.id);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setIsFavorite(false);
+    setMessage(`${movie?.title} removed from favorites!`);
+    setMessageType('error');
+    setTimeout(() => setMessage(''), 5000);
+  };
+
+  // Handle add to watchlist
+  const handleAddToWatchlist = () => {
+    const watchlist = getStoredMovies('watchlist');
+    if (isInWatchlist) {
+      setMessage(`${movie?.title} is already in your watchlist!`);
+      setMessageType('error');
+    } else {
+      watchlist.push(movie!); // Adding the current movie to watchlist
+      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+      setIsInWatchlist(true);
+      setMessage(`${movie?.title} added to watchlist!`);
+      setMessageType('success');
+    }
+    setTimeout(() => setMessage(''), 5000);
+  };
+
+  // Handle remove from watchlist
+  const handleRemoveFromWatchlist = () => {
+    const watchlist = getStoredMovies('watchlist').filter((item: Movie) => item.id !== movie!.id);
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+    setIsInWatchlist(false);
+    setMessage(`${movie?.title} removed from watchlist!`);
+    setMessageType('error');
+    setTimeout(() => setMessage(''), 5000);
+  };
+
+  // Fetch movie details on load
   useEffect(() => {
     if (!movieId) {
       setError("Movie ID is required");
@@ -23,6 +85,13 @@ export default function Details() {
       try {
         const movieData = await fetchMovieDetails(numericMovieId);
         setMovie(movieData);
+
+        // Check if the movie is in the favorites or watchlist
+        const favorites = getStoredMovies('favorites');
+        const watchlist = getStoredMovies('watchlist');
+
+        setIsFavorite(favorites.some((fav: Movie) => fav.id === movieData.id));
+        setIsInWatchlist(watchlist.some((item: Movie) => item.id === movieData.id));
       } catch (err) {
         setError("Failed to fetch movie details");
       } finally {
@@ -33,11 +102,9 @@ export default function Details() {
     fetchDetails();
   }, [movieId]);
 
-
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!movie) return <div>Movie not found.</div>;
-
 
   return (
     <div className="container mx-auto p-4 space-y-8">
@@ -76,29 +143,63 @@ export default function Details() {
           </div>
 
           {movie.genres && movie.genres.length > 0 && (
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold">Genres:</h3>
-                <ul className="flex space-x-4 mt-2">
-                  {movie.genres.map((genre) => (
-                    <li key={genre.id} className="bg-gray-500 px-3 py-1 rounded-full text-sm">
-                      {genre.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold">Genres:</h3>
+              <ul className="flex space-x-4 mt-2">
+                {movie.genres.map((genre) => (
+                  <li key={genre.id} className="bg-gray-500 px-3 py-1 rounded-full text-sm">
+                    {genre.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
       {/* Action Buttons (e.g., Add to Favorites, Add to Watchlist) */}
       <div className="flex justify-center mt-6">
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
-          Add to Watchlist
-        </button>
-        <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 ml-4">
-          Add to Favorites
-        </button>
+        
+      {isFavorite ? (
+          <button
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
+            onClick={handleRemoveFromFavorites}
+          >
+            Remove from Favorites
+          </button>
+        ) : (
+          <button
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
+            onClick={handleAddToFavorites}
+          >
+            Add to Favorites
+          </button>
+        )}
+
+        {isInWatchlist ? (
+          <button
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300"
+            onClick={handleRemoveFromWatchlist}
+          >
+            Remove from Watchlist
+          </button>
+        ) : (
+          <button
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+            onClick={handleAddToWatchlist}
+          >
+            Add to Watchlist
+          </button>
+        )}
+        
       </div>
+
+      {/* Message */}
+      {message && (
+        <div className={`mt-4 p-4 text-white text-center rounded-b-lg ${messageType === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+          {message}
+        </div>
+      )}
     </div>
   );
 }

@@ -69,17 +69,6 @@ export const fetchGenres = async () => {
     };
   }
 
-  /*export const fetchMovieDetails = async (movieId: number): Promise<any> => {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`; // URL to fetch movie details
-  
-    const response = await fetch(url);
-  
-    if (!response.ok) {
-      throw new Error("Failed to fetch movie details");
-    }
-  
-    return await response.json(); // Return the fetched movie details
-  };*/
   export const fetchMovieDetails = async (movieId: number) => {
     try {
       const response = await fetch(
