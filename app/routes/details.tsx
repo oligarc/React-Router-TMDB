@@ -17,20 +17,17 @@ export default function Details() {
       return;
     }
 
-    const fetchMovieDetails = async () => {
-      try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${numericMovieId}?api_key=YOUR_API_KEY&language=en-US`);
-        if (!response.ok) throw new Error("Failed to fetch movie details");
-
-        const data = await response.json();
-        setMovie(data);
-      } catch (err) {
-        setError("Failed to fetch movie details");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchMovieDetails();
+    setLoading(true);
+    fetchMovieDetails(numericMovieId) // Directly call the function here
+      .then((data) => {
+        setMovie(data); // Set the movie data on success
+      })
+      .catch((err) => {
+        setError("Failed to fetch movie details"); // Handle any error
+      })
+      .finally(() => {
+        setLoading(false); // End loading state
+      });
   }, [numericMovieId]);
 
 

@@ -69,11 +69,15 @@ export const fetchGenres = async () => {
     };
   }
 
-  export const fetchMovieDetails = async (id: string) => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=YOUR_TMDB_API_KEY`);
+  export const fetchMovieDetails = async (movieId: number): Promise<any> => {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`; // URL to fetch movie details
+  
+    const response = await fetch(url);
+  
     if (!response.ok) {
       throw new Error("Failed to fetch movie details");
     }
-    return response.json();
+  
+    return await response.json(); // Return the fetched movie details
   };
   
