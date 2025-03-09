@@ -13,7 +13,7 @@ function Index() {
     <>
     
     <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
-    <div className="max-w-7xl mx-auto my-5">
+    <div className="w-full mx-auto">
       <Outlet />
     </div>
     <Footer backgroundcolor="bg-amber-400" />
