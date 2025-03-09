@@ -68,3 +68,12 @@ export const fetchGenres = async () => {
       total_pages: data.total_pages
     };
   }
+
+  export const fetchMovieDetails = async (id: string) => {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=YOUR_TMDB_API_KEY`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch movie details");
+    }
+    return response.json();
+  };
+  
