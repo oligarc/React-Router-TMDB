@@ -23,7 +23,7 @@ function Favorites() {
   const displayedMovies = favorites.slice((currentPage - 1) * 10, currentPage * 10);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto  max-w-7xl p-4">
       <h1 className="text-2xl font-bold mb-4">Your Favorites</h1>
       {favorites.length === 0 ? (
         <p>No favorites added yet.</p>

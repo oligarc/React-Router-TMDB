@@ -109,7 +109,7 @@ export default function Details() {
   return (
     <>
       {/* Hero section with movie poster */}
-      <div className="w-full relative mb-3">
+      <div className="w-full relative mb-7">
         <img
           src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
           alt={movie.title}
@@ -126,7 +126,7 @@ export default function Details() {
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
-              className="w-full h-80 object-cover rounded-lg shadow-lg"
+              className="w-full h-100 object-cover rounded-lg shadow-lg"
             />
           </div>
 
@@ -156,45 +156,46 @@ export default function Details() {
                 </ul>
               </div>
             )}
+            {/* Action Buttons (e.g., Add to Favorites, Add to Watchlist) */}
+            <div className="flex mt-6">
+
+              {isFavorite ? (
+                <button
+                  className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
+                  onClick={handleRemoveFromFavorites}
+                >
+                  Remove from Favorites
+                </button>
+              ) : (
+                <button
+                  className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
+                  onClick={handleAddToFavorites}
+                >
+                  Add to Favorites
+                </button>
+              )}
+
+              {isInWatchlist ? (
+                <button
+                  className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300"
+                  onClick={handleRemoveFromWatchlist}
+                >
+                  Remove from Watchlist
+                </button>
+              ) : (
+                <button
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+                  onClick={handleAddToWatchlist}
+                >
+                  Add to Watchlist
+                </button>
+              )}
+
+            </div>
           </div>
         </div>
 
-        {/* Action Buttons (e.g., Add to Favorites, Add to Watchlist) */}
-        <div className="flex justify-center mt-6">
 
-          {isFavorite ? (
-            <button
-              className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
-              onClick={handleRemoveFromFavorites}
-            >
-              Remove from Favorites
-            </button>
-          ) : (
-            <button
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
-              onClick={handleAddToFavorites}
-            >
-              Add to Favorites
-            </button>
-          )}
-
-          {isInWatchlist ? (
-            <button
-              className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300"
-              onClick={handleRemoveFromWatchlist}
-            >
-              Remove from Watchlist
-            </button>
-          ) : (
-            <button
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
-              onClick={handleAddToWatchlist}
-            >
-              Add to Watchlist
-            </button>
-          )}
-
-        </div>
 
         {/* Message */}
         {message && (

@@ -28,7 +28,7 @@ function Search() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto max-w-7xl p-4">
       <h1 className="text-2xl font-bold mb-4">Search Results for {searchQuery}</h1>
       {movies.length === 0 ? (
         <p>No movies found.</p>
