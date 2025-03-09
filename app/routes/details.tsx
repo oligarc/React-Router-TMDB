@@ -192,17 +192,15 @@ export default function Details() {
               )}
 
             </div>
+            {/* Message */}
+            {message && (
+              <div className={`mt-4 p-4 text-white text-center rounded-b-lg ${messageType === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+                {message}
+              </div>
+            )}
           </div>
         </div>
 
-
-
-        {/* Message */}
-        {message && (
-          <div className={`mt-4 p-4 text-white text-center rounded-b-lg ${messageType === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
-            {message}
-          </div>
-        )}
       </div>
     </>
   );
