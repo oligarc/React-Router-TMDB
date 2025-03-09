@@ -126,7 +126,7 @@ export default function Details() {
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
-              className="w-full h-100 object-cover rounded-lg shadow-lg"
+              className="w-full h-full object-cover rounded-lg shadow-lg"
             />
           </div>
 
