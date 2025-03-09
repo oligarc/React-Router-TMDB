@@ -69,8 +69,8 @@ export const fetchGenres = async () => {
     };
   }
 
-  export const fetchMovieDetails = async (movieId: number): Promise<any> => {
-    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`; // URL to fetch movie details
+  /*export const fetchMovieDetails = async (movieId: number): Promise<any> => {
+    const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`; // URL to fetch movie details
   
     const response = await fetch(url);
   
@@ -79,5 +79,17 @@ export const fetchGenres = async () => {
     }
   
     return await response.json(); // Return the fetched movie details
+  };*/
+  export const fetchMovieDetails = async (movieId: number) => {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+      );
+      const data = await response.json();
+      console.log("Movie Data:", data); // Log the movie data here
+      return data;
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+    }
   };
   

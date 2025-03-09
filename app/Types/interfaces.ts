@@ -40,7 +40,8 @@ export interface Movie {
     poster_path: string | null,
     backdrop_path: string | null,
     vote_average: number,
-    genre_ids: number[]
+    genre_ids: number[],
+    genres?: Genre[]
 }
 
 
