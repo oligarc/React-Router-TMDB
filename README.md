@@ -96,8 +96,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-- [Oliver LinkedIn](https://www.linkedin.com/in/%C3%B3liver-garc%C3%ADa-rodr%C3%ADguez/)
-- [Oliver GitHub](https://github.com/oligarc)
-
-- [Juan LinkedIn](https://www.linkedin.com/in/juan-villoslada-jimenez/)
-- [Juan GitHub](https://github.com/jvillos)
+- <a href="https://www.linkedin.com/in/%C3%B3liver-garc%C3%ADa-rodr%C3%ADguez/" target="_blank" rel="noopener noreferrer">Oliver LinkedIn</a>
+  
+- <a href="https://github.com/oligarc" target="_blank" rel="noopener noreferrer">Oliver GitHub</a>
+  
+- <a href="https://www.linkedin.com/in/juan-villoslada-jimenez/" target="_blank" rel="noopener noreferrer">Juan LinkedIn</a>
+  
+- <a href="https://github.com/jvillos" target="_blank" rel="noopener noreferrer">Juan GitHub</a>
