@@ -1,19 +1,23 @@
-import React from 'react'
-import { NavLink, Outlet } from 'react-router'
+import Header from "~/Components/Layouts/Header";
+import Footer from "~/Components/Layouts/Footer";
+import { Outlet } from "react-router";
+import { useEffect } from "react";
+import { clearLocalStorage } from "~/Services/storage";
 
 function Index() {
+
+  useEffect(() => {
+    clearLocalStorage();
+  }, []); // Cuidado con refrescar la web, se carga los favoritos y watchlist
   return (
     <>
-        <nav>
-            <NavLink to="/"><img src="/logo/tmdb-logo.svg" alt="" width={100}/></NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/favorites">Favorites</NavLink>
-            <NavLink to="/watchlist">Watchlist</NavLink>
-            <NavLink to="/trendingActors">Trending Actors</NavLink>
-        </nav><hr />
-        <div>
-            <Outlet />
+      <div className="flex flex-col min-h-screen">
+        <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
+        <div className="w-full mx-auto mb-7 flex-grow">
+          <Outlet />
         </div>
+        <Footer backgroundcolor="bg-amber-400" />
+      </div>
     </>
   )
 }

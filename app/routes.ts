@@ -4,7 +4,7 @@ export default [
     layout("layouts/index.tsx",[
         index("routes/home.tsx"),
         route("about", "routes/about.tsx"),
-        route("details", "routes/details.tsx"),
+        route("movie/:movieId", "routes/details.tsx"),
         route("favorites", "routes/favorites.tsx"),
         route("watchlist", "routes/watchlist.tsx"),
         route("search", "routes/search.tsx"),
