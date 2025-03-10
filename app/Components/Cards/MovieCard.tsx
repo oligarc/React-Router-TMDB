@@ -72,7 +72,7 @@ function MovieCard({ movie }: { movie: Movie }) {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+    <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
       <Link to={`/movie/${movie.id}`} className="block">
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
