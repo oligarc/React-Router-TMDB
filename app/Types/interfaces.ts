@@ -21,10 +21,12 @@ export interface TextInputProps{
     value?:string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    textcolor?:string
 }
 
 export interface FooterProps{
-    backgroundcolor:string
+    backgroundcolor:string,
+    textcolor?:string
 }
 
 export interface Genre{

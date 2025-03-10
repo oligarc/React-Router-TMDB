@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { clearLocalStorage } from "~/Services/storage";
 
 function Index() {
+  const backgroundcolor = "bg-gray-900";
+  const textcolor = "text-white";
 
   useEffect(() => {
     clearLocalStorage();
@@ -12,11 +14,11 @@ function Index() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
+        <Header backgroundcolor={backgroundcolor} textcolor={textcolor} />
         <div className="w-full mx-auto mb-7 flex-grow">
           <Outlet />
         </div>
-        <Footer backgroundcolor="bg-amber-400" />
+        <Footer backgroundcolor={backgroundcolor} textcolor={textcolor} />
       </div>
     </>
   )

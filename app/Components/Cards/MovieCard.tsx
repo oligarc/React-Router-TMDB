@@ -72,7 +72,7 @@ function MovieCard({ movie }: { movie: Movie }) {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+    <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
       <Link to={`/movie/${movie.id}`} className="block">
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -95,7 +95,7 @@ function MovieCard({ movie }: { movie: Movie }) {
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-blue-500 text-sm mt-2 underline"
           >
-            {isExpanded ? "Leer menos" : "Leer más"}
+            {isExpanded ? "Show less" : "Show more"}
           </button>
         )}
         <div
@@ -111,7 +111,7 @@ function MovieCard({ movie }: { movie: Movie }) {
 
         <div className="mt-3 flex space-x-2">
           {isFavorite ? (
-            <Button backgroundcolor="bg-red-500" text="Remove from favorites" isrounded onClick={handleRemoveFromFavorites} />
+            <Button backgroundcolor="bg-red-500" text="Remove from favorites" isrounded onClick={handleRemoveFromFavorites}/>
           ) : (
             <Button backgroundcolor="bg-green-500" text="Add to favorites" isrounded onClick={handleAddToFavorites} />
           )}
@@ -119,7 +119,7 @@ function MovieCard({ movie }: { movie: Movie }) {
           {isInWatchlist ? (
             <Button backgroundcolor="bg-red-500" text="Remove from watchlist" isrounded onClick={handleRemoveFromWatchlist} />
           ) : (
-            <Button backgroundcolor="bg-blue-500" text="Add to watchlist" isrounded onClick={handleAddToWatchlist} />
+            <Button backgroundcolor="bg-blue-500" text="Add to watchlist" isrounded onClick={handleAddToWatchlist}  />
           )}
         </div>
       </div>
