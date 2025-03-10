@@ -13,7 +13,6 @@ export interface ButtonProps{
     text:string,
     isrounded?:boolean,
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-    hover?:number
 }
 
 export interface TextInputProps{

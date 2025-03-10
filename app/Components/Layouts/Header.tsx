@@ -70,7 +70,7 @@ function Header({ backgroundcolor, textcolor }: HeaderProps) {
               onKeyDown={handleKeyPress}
               name='try'
             />
-            <Button backgroundcolor="bg-teal-500" text="Search" isrounded onClick={handleSearch} hover={600} />
+            <Button backgroundcolor="bg-teal-500" text="Search" isrounded onClick={handleSearch} />
           </div>
         </div>
       </div>

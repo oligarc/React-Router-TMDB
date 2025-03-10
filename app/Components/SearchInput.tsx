@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { TextInputProps } from "~/Types/interfaces";
-import Favicon from "react-favicon";
 
 function SearchInput({ name, placeholder, value, onChange,onKeyDown, textcolor }: TextInputProps) {
   const [isFocused, setIsFocused] = useState(false);

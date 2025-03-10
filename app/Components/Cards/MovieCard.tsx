@@ -111,7 +111,7 @@ function MovieCard({ movie }: { movie: Movie }) {
 
         <div className="mt-3 flex space-x-2">
           {isFavorite ? (
-            <Button backgroundcolor="bg-red-500" text="Remove from favorites" isrounded onClick={handleRemoveFromFavorites} />
+            <Button backgroundcolor="bg-red-500" text="Remove from favorites" isrounded onClick={handleRemoveFromFavorites}/>
           ) : (
             <Button backgroundcolor="bg-green-500" text="Add to favorites" isrounded onClick={handleAddToFavorites} />
           )}
