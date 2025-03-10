@@ -49,11 +49,15 @@ export interface Movie {
 export interface Actor {
     id: number;
     name: string;
-    profile_path: string | null; // La URL de la imagen de perfil del actor
-    known_for_department: string; // Departamento por el cual es conocido (e.g., Actor, Director)
-    popularity: number; // Popularidad del actor según la API
-}
-
-export interface ActorCardProps{
-    actor: Actor
-}
+    profile_path: string | null;
+    known_for_department: string;
+    popularity: number;
+    birth_date: string | null; // Fecha de nacimiento
+    place_of_birth: string | null; // Lugar de nacimiento
+  }
+  
+  
+  export interface ActorCardProps {
+    actor: Actor;
+  }
+  

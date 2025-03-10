@@ -63,9 +63,31 @@ export const fetchGenres = async () => {
   export async function fetchTrendingActors(page: number): Promise<{ actors: Actor[], total_pages: number }> {
     const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&page=${page}`);
     const data = await response.json();
+  
+    // Obtener los detalles adicionales de cada actor
+    const actorsWithDetails = await Promise.all(
+      data.results.map(async (actor: any) => {
+        // Realizamos una segunda llamada a la API para obtener detalles del actor
+        const actorDetailsResponse = await fetch(`${BASE_URL}/person/${actor.id}?api_key=${API_KEY}`);
+        const actorDetails = await actorDetailsResponse.json();
+  
+        return {
+          id: actor.id,
+          name: actor.name,
+          profile_path: actor.profile_path,
+          known_for_department: actor.known_for_department,
+          popularity: actor.popularity,
+          // Nuevos campos
+          birth_date: actorDetails.birthday || null, // Si no tiene fecha de nacimiento
+          place_of_birth: actorDetails.place_of_birth || null, // Si no tiene lugar de nacimiento
+          biography: actorDetails.biography || null, // Si no tiene biografía
+        };
+      })
+    );
+  
     return {
-      actors: data.results,
-      total_pages: data.total_pages
+      actors: actorsWithDetails,
+      total_pages: data.total_pages,
     };
   }
 

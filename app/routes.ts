@@ -10,5 +10,6 @@ export default [
         route("search", "routes/search.tsx"),
         route("filter", "routes/filter.tsx"),
         route("trendingActors", "routes/trendingActors.tsx"),
+        route("actor/:actorId", "routes/actorMovies.tsx"),
     ]
 )] satisfies RouteConfig;
