@@ -51,9 +51,9 @@ function Header({ backgroundcolor, textcolor }: HeaderProps) {
           <div className="flex items-center">
             <Logo image="tmdb-logo" format="svg" />
             <nav>
-              <NavLink to="/favorites" className={`${textcolor} ms-3`}>Favorites</NavLink>
-              <NavLink to="/watchlist" className={`${textcolor} ms-3`}>Watchlist</NavLink>
-              <NavLink to="/trendingActors" className={`${textcolor} ms-3`}>Trending actors</NavLink>
+              <NavLink to="/favorites" className={`${textcolor} ms-3 px-2`}>Favorites</NavLink>
+              <NavLink to="/watchlist" className={`${textcolor} ms-3 px-2`}>Watchlist</NavLink>
+              <NavLink to="/trendingActors" className={`${textcolor} ms-3 px-2`}>Trending actors</NavLink>
               <select onChange={handleGenreChange} className="ms-3 p-1 border rounded-2xl">
                 <option value="" className={`${backgroundcolor}`}>Filter by genre</option>
                 {genres.map(genre => (
@@ -70,7 +70,7 @@ function Header({ backgroundcolor, textcolor }: HeaderProps) {
               onKeyDown={handleKeyPress}
               name='try'
             />
-            <Button backgroundcolor="bg-green-400" text="Search" isrounded onClick={handleSearch} />
+            <Button backgroundcolor="bg-teal-500" text="Search" isrounded onClick={handleSearch} hover={600} />
           </div>
         </div>
       </div>

@@ -95,7 +95,7 @@ function MovieCard({ movie }: { movie: Movie }) {
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-blue-500 text-sm mt-2 underline"
           >
-            {isExpanded ? "Leer menos" : "Leer más"}
+            {isExpanded ? "Show less" : "Show more"}
           </button>
         )}
         <div
@@ -119,7 +119,7 @@ function MovieCard({ movie }: { movie: Movie }) {
           {isInWatchlist ? (
             <Button backgroundcolor="bg-red-500" text="Remove from watchlist" isrounded onClick={handleRemoveFromWatchlist} />
           ) : (
-            <Button backgroundcolor="bg-blue-500" text="Add to watchlist" isrounded onClick={handleAddToWatchlist} />
+            <Button backgroundcolor="bg-blue-500" text="Add to watchlist" isrounded onClick={handleAddToWatchlist}  />
           )}
         </div>
       </div>

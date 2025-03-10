@@ -13,6 +13,7 @@ export interface ButtonProps{
     text:string,
     isrounded?:boolean,
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    hover?:number
 }
 
 export interface TextInputProps{
@@ -25,7 +26,8 @@ export interface TextInputProps{
 }
 
 export interface FooterProps{
-    backgroundcolor:string
+    backgroundcolor:string,
+    textcolor?:string
 }
 
 export interface Genre{
