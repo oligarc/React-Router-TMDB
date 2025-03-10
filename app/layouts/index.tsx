@@ -11,12 +11,13 @@ function Index() {
   }, []); // Cuidado con refrescar la web, se carga los favoritos y watchlist
   return (
     <>
-    
-    <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
-    <div className="w-full mx-auto mb-7">
-      <Outlet />
-    </div>
-    <Footer backgroundcolor="bg-amber-400" />
+      <div className="flex flex-col min-h-screen">
+        <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
+        <div className="w-full mx-auto mb-7 flex-grow">
+          <Outlet />
+        </div>
+        <Footer backgroundcolor="bg-amber-400" />
+      </div>
     </>
   )
 }
