@@ -12,7 +12,7 @@ function Index() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <Header backgroundcolor="bg-yellow-500" textcolor="text-black" />
+        <Header backgroundcolor="bg-gray-900" textcolor="text-white" />
         <div className="w-full mx-auto mb-7 flex-grow">
           <Outlet />
         </div>

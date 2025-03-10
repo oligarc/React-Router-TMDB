@@ -45,15 +45,15 @@ function Header({ backgroundcolor, textcolor }: HeaderProps) {
   };
 
   return (
-    <header className={`${backgroundcolor} p-5`}>
+    <header className={`${backgroundcolor} ${textcolor} p-5 `}>
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Logo image="tmdb-logo" format="svg" />
             <nav>
-              <NavLink to="/favorites" className={"text-black ms-3"}>Favorites</NavLink>
-              <NavLink to="/watchlist" className={"text-black ms-3"}>Watchlist</NavLink>
-              <NavLink to="/trendingActors" className={"text-black ms-3"}>Trending actors</NavLink>
+              <NavLink to="/favorites" className={`${textcolor} ms-3`}>Favorites</NavLink>
+              <NavLink to="/watchlist" className={`${textcolor} ms-3`}>Watchlist</NavLink>
+              <NavLink to="/trendingActors" className={`${textcolor} ms-3`}>Trending actors</NavLink>
               <select onChange={handleGenreChange} className="ms-3 p-1 border rounded-2xl">
                 <option value="" className={`${backgroundcolor}`}>Filter by genre</option>
                 {genres.map(genre => (
