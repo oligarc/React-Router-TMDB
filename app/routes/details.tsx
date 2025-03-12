@@ -174,7 +174,7 @@ export default function Details() {
               </button>
             ) : (
               <button
-                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
+                className="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 mr-4"
                 onClick={handleAddToFavorites}
               >
                 Add to Favorites

@@ -29,7 +29,7 @@ You can also check the most trending actors of the moment
 
 ![trendingActors.png](public/README_img/trendingActors.png)
 
-Click on them to see each actor's latest movies!
+Click on them to see each actor's best movies!
 
 ![moviesActor.png](public/README_img/moviesActor.png)
 

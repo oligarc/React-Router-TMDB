@@ -113,7 +113,7 @@ function MovieCard({ movie }: { movie: Movie }) {
           {isFavorite ? (
             <Button backgroundcolor="bg-red-500" text="Remove from favorites" isrounded onClick={handleRemoveFromFavorites}/>
           ) : (
-            <Button backgroundcolor="bg-green-500" text="Add to favorites" isrounded onClick={handleAddToFavorites} />
+            <Button backgroundcolor="bg-teal-500" text="Add to favorites" isrounded onClick={handleAddToFavorites} />
           )}
 
           {isInWatchlist ? (
