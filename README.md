@@ -13,21 +13,25 @@ Please note that in order to use this project you need to make a free account in
 As you won't be capable of using this unless you first make your account, we think it's a good idea to show you how the app is built.
 
 This is the first thing you'll see when you run the app, the newest films.
-![recentMovies.png]()
-
-Once you are on them, it has a transition to make it more dynamic.
-![hover2.png]()
+![recentMovies.png](public/README_img/recentMovies.png)
 
 If you click on them, you're being redirected to see more details of the film as you can see
-![clickOn.png]()
+![movieDetails1.png](public/README_img/movieDetails1.png)
+![movieDetails2.png](public/README_img/movieDetails2.png)
 
 Also, as you can see, you can add it to your favourites or to your watchlist
 
-![addedToFavourites.png]()
+![addedToFavorites.png](public/README_img/addedToFavorites.png)
 
 If it is already added in your watchlist or in your favourites...
 
-![alreadyFavourite.png]()
+You can also check the most trending actors of the moment
+
+![trendingActors.png](public/README_img/trendingActors.png)
+
+Click on them to see each actor's latest movies!
+
+![moviesActor.png](public/README_img/moviesActor.png)
 
 This is only a sneak peek of what you can do with the app, if you want to see more you'll have to try it for yourself!
 
