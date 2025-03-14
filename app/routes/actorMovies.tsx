@@ -130,7 +130,7 @@ const ActorMovies: React.FC = () => {
     }
   
     return (
-      <div className="p-4">
+      <div className="p-4 mx-auto max-w-7xl">
         <h1 className="text-3xl font-semibold text-center mb-6">Movies of {actorName}</h1>
         {movies.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
