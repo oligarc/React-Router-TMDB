@@ -11,11 +11,11 @@ export const fetchRecentMovies = async (page: number = 1) => {
     );
     const data = await response.json();
     
-    // Devuelve tanto los resultados como el total de páginas
+    
     return { movies: data.results, totalPages: data.total_pages };
   } catch (error) {
     console.error("Error getting the films:", error);
-    return { movies: [], totalPages: 1 }; // En caso de error, devuelve un arreglo vacío y 1 página
+    return { movies: [], totalPages: 1 }; 
   }
 };
 
@@ -40,10 +40,10 @@ export const fetchGenres = async () => {
         `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en-EN&page=${page}`
       );
       const data = await response.json();
-      return { movies: data.results, totalPages: data.total_pages }; // Retorna movies y totalPages
+      return { movies: data.results, totalPages: data.total_pages }; // Returns movies y totalPages
     } catch (error) {
       console.error("Error fetching films by genre: ", error);
-      return { movies: [], totalPages: 1 }; // Retorna valores por defecto en caso de error
+      return { movies: [], totalPages: 1 };
     }
   };
 
@@ -64,10 +64,9 @@ export const fetchGenres = async () => {
     const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&page=${page}`);
     const data = await response.json();
   
-    // Obtener los detalles adicionales de cada actor
+    
     const actorsWithDetails = await Promise.all(
       data.results.map(async (actor: any) => {
-        // Realizamos una segunda llamada a la API para obtener detalles del actor
         const actorDetailsResponse = await fetch(`${BASE_URL}/person/${actor.id}?api_key=${API_KEY}`);
         const actorDetails = await actorDetailsResponse.json();
   
@@ -77,10 +76,9 @@ export const fetchGenres = async () => {
           profile_path: actor.profile_path,
           known_for_department: actor.known_for_department,
           popularity: actor.popularity,
-          // Nuevos campos
-          birth_date: actorDetails.birthday || null, // Si no tiene fecha de nacimiento
-          place_of_birth: actorDetails.place_of_birth || null, // Si no tiene lugar de nacimiento
-          biography: actorDetails.biography || null, // Si no tiene biografía
+          birth_date: actorDetails.birthday || null,
+          place_of_birth: actorDetails.place_of_birth || null,
+          biography: actorDetails.biography || null, 
         };
       })
     );

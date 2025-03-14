@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
-import { fetchTrendingActors } from '~/Services/functions'; // Asegúrate de tener esta función para obtener actores populares
-import ActorCard from '~/Components/Cards/ActorCard'; // Componente para mostrar información del actor
+import { fetchTrendingActors } from '~/Services/functions';
+import ActorCard from '~/Components/Cards/ActorCard';
 import type { Actor } from '~/Types/interfaces';
 
 function TrendingActors() {
-  const [actors, setActors] = useState<Actor[]>([]); // Inicializa como un arreglo vacío
+  const [actors, setActors] = useState<Actor[]>([]); 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchParams] = useSearchParams(); // Para manejar los parámetros de búsqueda y paginación
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const fetchActors = async () => {
       try {
         const { actors: fetchedActors, total_pages } = await fetchTrendingActors(currentPage);
         setActors(fetchedActors);
-        setTotalPages(total_pages); // Asegúrate de que la API devuelva el total de páginas
+        setTotalPages(total_pages);
       } catch (error) {
         console.error("Error fetching trending actors:", error);
-        // Aquí podrías manejar errores si es necesario, como mostrar un mensaje de error.
       }
     };
 
     fetchActors();
-  }, [currentPage]); // Se actualiza cuando cambia la página actual
+  }, [currentPage]); 
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo(0, 0); // Desplaza la página hacia arriba
+    window.scrollTo(0, 0);
   };
 
   return (

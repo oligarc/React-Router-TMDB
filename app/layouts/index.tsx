@@ -10,7 +10,7 @@ function Index() {
 
   useEffect(() => {
     clearLocalStorage();
-  }, []); // Cuidado con refrescar la web, se carga los favoritos y watchlist
+  }, []); // Everytime we launch the app
   return (
     <>
       <div className="flex flex-col min-h-screen">

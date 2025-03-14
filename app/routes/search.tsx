@@ -6,7 +6,7 @@ import type { Movie } from '~/Types/interfaces';
 
 function Search() {
   const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get("query"); // Obtiene el parámetro 'query' de la URL
+  const searchQuery = searchParams.get("query"); // We get the 'query' from URL
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);

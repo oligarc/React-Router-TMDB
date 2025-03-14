@@ -37,19 +37,19 @@ const ActorMovies: React.FC = () => {
       fetchMoviesAndActor();
     }, [actorId]);
   
-    // Obtener películas de favoritos o watchlist desde localStorage
+    // Get movies from favourites or watchlist from localStorage
     const getStoredMovies = (key: string) => {
       const stored = localStorage.getItem(key);
       return stored ? JSON.parse(stored) : [];
     };
   
-    // Agregar a favoritos
+    // Add to favorites
     const handleAddToFavorites = (movie: Movie) => {
       const favorites = getStoredMovies('favorites');
       const movieExists = favorites.some((fav: Movie) => fav.id === movie.id);
   
       if (movieExists) {
-        // Eliminar de favoritos
+        // Remove from favoritos
         const updatedFavorites = favorites.filter((fav: Movie) => fav.id !== movie.id);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   
@@ -62,7 +62,7 @@ const ActorMovies: React.FC = () => {
           [movie.id]: 'success',
         }));
       } else {
-        // Añadir a favoritos
+        // Add to favoritos
         favorites.push(movie);
         localStorage.setItem('favorites', JSON.stringify(favorites));
   
@@ -78,7 +78,7 @@ const ActorMovies: React.FC = () => {
       setTimeout(() => {
         setMessages((prevMessages) => {
           const newMessages = { ...prevMessages };
-          delete newMessages[movie.id]; // Eliminar el mensaje después de 5 segundos
+          delete newMessages[movie.id]; // Remove message after 5 seconds
           return newMessages;
         });
       }, 5000);
