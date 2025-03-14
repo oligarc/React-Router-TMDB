@@ -155,7 +155,7 @@ export default function Details() {
               <h3 className="text-xl font-semibold">Genres:</h3>
               <ul className="flex space-x-4 mt-2">
                 {movie.genres.map((genre) => (
-                  <li key={genre.id} className="bg-gray-500 px-3 py-1 rounded-full text-sm">
+                  <li key={genre.id} className="bg-gray-500 px-3 py-1 rounded-full text-sm text-white">
                     {genre.name}
                   </li>
                 ))}
